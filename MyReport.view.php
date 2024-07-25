@@ -45,7 +45,7 @@
 
     if (!isset($_POST['command'])) {
         $samples->srand(42);
-    } else if (isset($_POST['command2'])) {
+    } else if (isset($_POST['command'])) {
         $samples->srand($_SESSION['seed']);
     }
 
