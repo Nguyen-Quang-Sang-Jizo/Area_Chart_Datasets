@@ -5,31 +5,7 @@ $report = new MyReport;
 $report->run();
 ?>
 <?php
-if (isset($_POST['command']) && $_POST['command'] === "propagate") {
-?>
-    <div id='report_render'>
-        <?php
-        $report->render();
-        ?>
-    </div>
-<?php
-    exit();
-}
-?>
-<?php
-if (isset($_POST['command']) && $_POST['command'] === "randomize") {
-?>
-    <div id='report_render'>
-        <?php
-        $report->render();
-        ?>
-    </div>
-<?php
-    exit();
-}
-?>
-<?php
-if (isset($_POST['command']) && $_POST['command'] === "smooth") {
+if (isset($_POST['command'])) {
 ?>
     <div id='report_render'>
         <?php
