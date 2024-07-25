@@ -5,7 +5,7 @@ $report = new MyReport;
 $report->run();
 ?>
 <?php
-if (isset($_POST['command3']) && $_POST['command3'] = "propagate") {
+if (isset($_POST['command']) && $_POST['command'] === "propagate") {
 ?>
     <div id='report_render'>
         <?php
@@ -17,7 +17,7 @@ if (isset($_POST['command3']) && $_POST['command3'] = "propagate") {
 }
 ?>
 <?php
-if (isset($_POST['command2']) && $_POST['command2'] = "randomize") {
+if (isset($_POST['command']) && $_POST['command'] === "randomize") {
 ?>
     <div id='report_render'>
         <?php
@@ -29,7 +29,7 @@ if (isset($_POST['command2']) && $_POST['command2'] = "randomize") {
 }
 ?>
 <?php
-if (isset($_POST['command1']) && $_POST['command1'] = "smooth") {
+if (isset($_POST['command']) && $_POST['command'] === "smooth") {
 ?>
     <div id='report_render'>
         <?php
@@ -41,7 +41,7 @@ if (isset($_POST['command1']) && $_POST['command1'] = "smooth") {
 }
 ?>
 <?php
-if (!isset($_POST['command1']) && !isset($_POST['command2']) && !isset($_POST['command3'])) {
+if (!isset($_POST['command'])) {
 ?>
     <div id='report_render'>
         <?php
@@ -118,7 +118,7 @@ if (!isset($_POST['command1']) && !isset($_POST['command2']) && !isset($_POST['c
                 $.ajax({
                     type: "POST",
                     data: {
-                        command1: "smooth"
+                        command: "smooth"
                     },
                     success: function(response) {
                         $('#report_render').html(response);
@@ -130,7 +130,7 @@ if (!isset($_POST['command1']) && !isset($_POST['command2']) && !isset($_POST['c
                 $.ajax({
                     type: "POST",
                     data: {
-                        command2: "randomize"
+                        command: "randomize"
                     },
                     success: function(response) {
                         $('#report_render').html(response);
@@ -142,7 +142,7 @@ if (!isset($_POST['command1']) && !isset($_POST['command2']) && !isset($_POST['c
                 $.ajax({
                     type: "POST",
                     data: {
-                        command3: "propagate"
+                        command: "propagate"
                     },
                     success: function(response) {
                         $('#report_render').html(response);

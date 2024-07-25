@@ -43,7 +43,7 @@
 
     $samples = new SamplesUtils();
 
-    if (!isset($_POST['command1']) && !isset($_POST['command2']) && !isset($_POST['command3'])) {
+    if (!isset($_POST['command'])) {
         $samples->srand(42);
     } else if (isset($_POST['command2'])) {
         $samples->srand($_SESSION['seed']);
@@ -83,26 +83,26 @@
         ['month' => 'August',   'D0' => $D0[7], 'D1' => $D1[7], 'D2' => $D2[7], 'D3' => $D3[7], 'D4' => $D4[7], 'D5' => $D5[7], 'D6' => $D6[7], 'D7' => $D7[7], 'D8' => $D8[7]]
     ];
 
-    if (!isset($_POST['command1']) && !isset($_POST['command2']) && !isset($_POST['command3'])) {
+    if (!isset($_POST['command'])) {
         $_SESSION['data'] = $data;
         $_SESSION['tension'] = 0.000001;
         $_SESSION['propagate'] = false;
     }
-    if (isset($_POST['command3']) && $_POST['command3'] === "propagate") {
+    if (isset($_POST['command']) && $_POST['command'] === "propagate") {
         if ($_SESSION['propagate'] === false) {
             $_SESSION['propagate'] = "value";
         } else {
             $_SESSION['propagate'] = false;
         }
     }
-    if (isset($_POST['command1']) && $_POST['command1'] === "smooth") {
+    if (isset($_POST['command']) && $_POST['command'] === "smooth") {
         if ($_SESSION['tension'] === 0.000001) {
             $_SESSION['tension'] = 0.4;
         } else {
             $_SESSION['tension'] = 0.000001;
         }
     }
-    if (isset($_POST['command2']) && $_POST['command2'] === 'randomize') {
+    if (isset($_POST['command']) && $_POST['command'] === 'randomize') {
         $seed = $samples->rand();
         $_SESSION['seed'] = $seed;
         $samples->srand($seed);
